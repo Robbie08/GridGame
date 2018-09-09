@@ -5,11 +5,11 @@ public class GameGrid {
 
     // Declare and Initialize instance variables
     private static int[][] aiGrid = new int[10][10]; //instantiate and declare 2D Array
-    static int iUserRow = 0; // will keep the users position
-    static int iUserCol = 0; // will keep the users position
-    public static int iWallChance; // determines the difficulty
-    public static Scanner scan = new Scanner(System.in); // instance of the scanner class
-    public static int iMovement = 0; // holds the users input on direction which will then be validated into a direction
+    private static int iUserRow = 0; // will keep the users position
+    private static int iUserCol = 0; // will keep the users position
+    private static int iWallChance; // determines the difficulty
+    private static Scanner scan = new Scanner(System.in); // instance of the scanner class
+    private static int iMovement = 0; // holds the users input on direction which will then be validated into a direction
 
 
     void runTest(){
@@ -19,45 +19,41 @@ public class GameGrid {
 
         //runs the game loop
         while(gameOn){
-
-            promptUser(); //get user input and
             int iPosition = aiGrid[iUserCol][iUserRow];
-            int iTrueCol = iUserCol + 1;
-            int iTrueRow = iUserRow + 1;
             System.out.println(iPosition);
 
-            if(iPosition == 1) {
-                //if the user ran into a wall
-                System.out.println("*****You ran into the wall: You Lose!******");
-                System.out.println("Your position: grid[" +(iTrueCol-1) +"][" +(iTrueRow-1)+"]" );
-                printGrid(aiGrid);
-                gameOn = false;
-            }
-            else if(iUserCol == 9){
-                //user won the game
-                System.out.println("*****You win!******");
-                System.out.println("Your position: grid[" +(iTrueCol-1) +"][" +(iTrueRow-1)+"]" );
-                aiGrid[0][0] = 88; //sets an X at the final cell
-                aiGrid[iUserCol][iUserRow] = 88; // to print an x in the last position
-                printGrid(aiGrid);
-                gameOn = false;
-            }
-            else if(iUserRow == 9){
-                //user won the game
-                System.out.println("*****You win!******");
-                System.out.println("Your position: grid[" +(iTrueCol-1) +"][" +(iTrueRow-1)+"]" );
-                aiGrid[0][0] = 88; //sets an X at the final cell
-                aiGrid[iUserCol][iUserRow] = 88; // to print an x in the last position
-                printGrid(aiGrid);
-                gameOn = false;
-            }
-            else {
-                aiGrid[iUserCol][iUserRow] = 88; // sets an X at position the user steps on that doesn't exit the game
-                moveUser(); //move user up or right
-            }
+            switch (iPosition){
+                case 1:
+                    //if the user ran into a wall
+                    System.out.println("*****You ran into the wall: You Lose!******");
+                    gameOn = false; // exit game loop
+                    break;
+                case 0:
+                    // if the user did not run into the wall
+                    promptUser(); //get user input to move
+                    aiGrid[iUserCol][iUserRow] = 88; // sets an X at position the user steps on that doesn't exit the game
+                    moveUser(); //move the user if the value is 0
 
+                    if(iUserCol == 9){
+                        // user won the game through a max col
+                        System.out.println("*****You win!******");
+                        aiGrid[iUserCol][iUserRow] = 88; // to print an x in the last position
+                        gameOn = false; // will exit the game
+                    }
+                    else if(iUserRow == 9){
+                        // user won the game through a max row
+                        System.out.println("*****You win!******");
+                        aiGrid[iUserCol][iUserRow] = 88; // to print an x in the last position
+                        gameOn = false; // will exit the game
+                    }
+                    break;
+                default:
+
+            }
 
         }
+
+        printGrid(aiGrid); //print out the grid once the game loop is done
     }
 
     //Move user though the game board
@@ -136,7 +132,6 @@ public class GameGrid {
                 //populate array
                 int iRandomNum = oRand.nextInt(100); //bound will be from ( o -> n - 1): n being the passed value
                 // percentage of the wall
-
                 if(iRandomNum < iWallChance){
                     //Gives us a 15% chance that we will get a wall
                     aiGrid[x][y] = 1;
