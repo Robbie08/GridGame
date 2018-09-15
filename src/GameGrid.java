@@ -10,7 +10,7 @@ public class GameGrid {
     private static int iWallChance; // determines the difficulty
     private static Scanner scan = new Scanner(System.in); // instance of the scanner class
     private static int iMovement = 0; // holds the users input on direction which will then be validated into a direction
-
+    private static int iTotalMovements;
 
     void runTest(){
         boolean gameOn = true;
@@ -20,7 +20,6 @@ public class GameGrid {
         //runs the game loop
         while(gameOn){
             int iPosition = aiGrid[iUserCol][iUserRow];
-            System.out.println(iPosition);
 
             switch (iPosition){
                 case 1:
@@ -37,20 +36,23 @@ public class GameGrid {
                     if(iUserCol == 9){
                         // user won the game through a max col
                         System.out.println("*****You win!******");
+                        iTotalMovements++;
                         aiGrid[iUserCol][iUserRow] = 88; // to print an x in the last position
                         gameOn = false; // will exit the game
                     }
                     else if(iUserRow == 9){
                         // user won the game through a max row
                         System.out.println("*****You win!******");
-                        aiGrid[iUserCol][iUserRow] = 88; // to print an x in the last position
+                        iTotalMovements++;
+                        aiGrid[iUserCol][iUserRow] = 88; // to print x in the last position
                         gameOn = false; // will exit the game
                     }
+
+                    iTotalMovements++; // count the number of steps the user took
                     break;
                 default:
 
             }
-
         }
 
         printGrid(aiGrid); //print out the grid once the game loop is done
@@ -73,13 +75,16 @@ public class GameGrid {
     //Will set the difficulty
     private static void validateDifficulty(int iDifficulty){
         if(iDifficulty == 1){
-            iWallChance = 15;
+            iWallChance = 15; // sets the amount of walls to a 15/100 ratio
+            System.out.println("Difficulty has been set to Easy");
         }
         else if(iDifficulty == 2){
-            iWallChance = 25;
+            iWallChance = 25; // sets the amount of walls to a 25/100 ratio
+            System.out.println("Difficulty has been set to Medium");
         }
         else {
-            iWallChance = 35;
+            iWallChance = 35; // sets the amount of walls to a 35/100 ratio
+            System.out.println("Difficulty has been set to Hard: You have no chance!");
         }
     }
 
@@ -148,6 +153,7 @@ public class GameGrid {
     // Will print the grid
     private static void printGrid(int[][] aiGrid){
 
+        System.out.println("You took a total of: " +iTotalMovements);
         for (int[] anAiGrid : aiGrid) {
             for (int anAnAiGrid : anAiGrid) {
 
