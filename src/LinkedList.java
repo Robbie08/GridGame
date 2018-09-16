@@ -28,7 +28,7 @@ public class LinkedList {
         return oTemp;
     }
 
-    public Node getoHeadNode(){
+    public Node getHeadNode(){
         return oHeadNode;
     }
 

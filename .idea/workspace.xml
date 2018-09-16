@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="979462e0-7023-4846-b1a1-2db0aafd1c07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/LinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GridGameProject/GameGrid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GridGameProject/GameGrid.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkedList.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,12 +35,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="13564" />
+          <entry key="java" value="15026" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="13564" />
+          <entry key="JAVA" value="15026" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -57,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameGrid_Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -66,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameGrid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+            <state relative-caret-position="1122">
+              <caret line="66" column="9" lean-forward="true" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#moveUser#0;class#GameGrid#0" />
@@ -75,6 +72,7 @@
                 <element signature="method#promptDifficulty#0;class#GameGrid#0" />
                 <element signature="method#promptUser#0;class#GameGrid#0" />
                 <element signature="method#createGrid#0;class#GameGrid#0" />
+                <element signature="method#printGrid#0;class#GameGrid#0" />
               </folding>
             </state>
           </provider>
@@ -92,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+            <state relative-caret-position="510">
+              <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
               <folding>
                 <element signature="e#743#744#0" expanded="true" />
                 <element signature="e#774#775#0" expanded="true" />
@@ -157,7 +155,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536987257516" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/ortiz/IdeaProjects/GridGameProject/src/LinkedList.java" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537056108256" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -200,6 +199,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24899329" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -235,15 +235,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/GameGrid_Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        <state relative-caret-position="510">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
           <folding>
             <element signature="e#743#744#0" expanded="true" />
             <element signature="e#774#775#0" expanded="true" />
@@ -260,8 +260,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameGrid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+        <state relative-caret-position="1122">
+          <caret line="66" column="9" lean-forward="true" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#moveUser#0;class#GameGrid#0" />
@@ -269,6 +269,7 @@
             <element signature="method#promptDifficulty#0;class#GameGrid#0" />
             <element signature="method#promptUser#0;class#GameGrid#0" />
             <element signature="method#createGrid#0;class#GameGrid#0" />
+            <element signature="method#printGrid#0;class#GameGrid#0" />
           </folding>
         </state>
       </provider>

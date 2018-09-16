@@ -10,12 +10,15 @@ public class GameGrid {
     private static int iWallChance; // determines the difficulty
     private static Scanner scan = new Scanner(System.in); // instance of the scanner class
     private static int iMovement = 0; // holds the users input on direction which will then be validated into a direction
-    private static int iTotalMovements;
+    private static int iTotalMovements; // holds the amount of moves the user takes
 
     void runTest(){
         boolean gameOn = true;
         promptDifficulty(); // will ask the user to enter their choice of difficulty
         createGrid(); // method will create our grid and populate it
+
+        // create an instance of the LinkedList class
+        LinkedList oLinkedList = new LinkedList();
 
         //runs the game loop
         while(gameOn){
@@ -24,39 +27,50 @@ public class GameGrid {
             switch (iPosition){
                 case 1:
                     //if the user ran into a wall
+                    System.out.println();
                     System.out.println("*****You ran into the wall: You Lose!******");
                     gameOn = false; // exit game loop
                     break;
                 case 0:
                     // if the user did not run into the wall
                     promptUser(); //get user input to move
-                    aiGrid[iUserCol][iUserRow] = 88; // sets an X at position the user steps on that doesn't exit the game
+                    oLinkedList.addHeadNode(iUserCol,iUserRow); // create a node in our linked list
                     moveUser(); //move the user if the value is 0
 
                     if(iUserCol == 9){
                         // user won the game through a max col
-                        System.out.println("*****You win!******");
-                        iTotalMovements++;
-                        aiGrid[iUserCol][iUserRow] = 88; // to print an x in the last position
+                        System.out.println();
+                        System.out.println("*******You win!*******");
+                        oLinkedList.addHeadNode(iUserCol,iUserRow); // create a node in our linked list when user wins
                         gameOn = false; // will exit the game
                     }
                     else if(iUserRow == 9){
                         // user won the game through a max row
-                        System.out.println("*****You win!******");
-                        iTotalMovements++;
-                        aiGrid[iUserCol][iUserRow] = 88; // to print x in the last position
+                        System.out.println();
+                        System.out.println("*******You win!*******");
+                        oLinkedList.addHeadNode(iUserCol,iUserRow); // create a node in our linked list when user wins
                         gameOn = false; // will exit the game
                     }
-
-                    iTotalMovements++; // count the number of steps the user took
                     break;
                 default:
 
             }
         }
 
+        // will set the values of the users trail by traversing the linked list
+        while(oLinkedList.getHeadNode() != null){
+            // runs until the head node is null meaning the program is at the end of the list
+            // will set an X at every position the user steps on
+            aiGrid[oLinkedList.getHeadNode().xPosition][oLinkedList.getHeadNode().yPosition] = 42 ;
+            iTotalMovements++; // count the number of steps the user took
+            oLinkedList.removeHeadNode(); //remove the node and jump to the next
+        }
         printGrid(aiGrid); //print out the grid once the game loop is done
     }
+
+
+
+    // This could have been like a utils class on its own but wasn't part of requirements
 
     //Move user though the game board
     private static void moveUser(){
@@ -152,12 +166,11 @@ public class GameGrid {
 
     // Will print the grid
     private static void printGrid(int[][] aiGrid){
-
-        System.out.println("You took a total of: " +iTotalMovements);
+        System.out.println("Total steps taken: " +iTotalMovements +"\n");
         for (int[] anAiGrid : aiGrid) {
             for (int anAnAiGrid : anAiGrid) {
 
-                if(anAnAiGrid == 88){
+                if(anAnAiGrid == 42 ){
                     System.out.print(" " +(char) anAnAiGrid);
                 }else
                 System.out.print(" " + anAnAiGrid);
